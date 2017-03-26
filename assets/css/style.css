@@ -58,3 +58,9 @@ table {
 .add-train-body {
 	padding: 10px;
 }
+
+body {
+	background-image: url('../images/background.png');
+
+}
+
