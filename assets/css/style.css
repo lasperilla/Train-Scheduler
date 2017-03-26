@@ -54,3 +54,7 @@ table {
 }
 
 .panel-body > .table{margin-bottom:0px;}
+
+.add-train-body {
+	padding: 10px;
+}

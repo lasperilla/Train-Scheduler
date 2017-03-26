@@ -35,7 +35,8 @@
         </div>
         <div class="row">
             <div class="panel panel-success">
-                <div class="panel-heading panel-title">Current Train Schedule</div>
+                <div class="panel-heading panel-title">Current Train Schedule
+                </div>
                 <div class="panel-body">
                     <table id="current-schedule" class="table table-bordered table-hover specialCollapse">
                         <tbody>
@@ -80,16 +81,40 @@
             </div>
         </div>
         <div class="row">
-        </div>
-    </div>
-    <footer class="footer-bottom col-xs-12 navbar-inverse navbar-fixed-bottom">
-        <div class="container">
-            <div class="row">
-                <p>© Copyright 2017 Lawrence Asperilla</p>
+            <div class="panel panel-success">
+                <div class="panel-heading panel-title">Add Train
+                </div>
+                <div class="panel-body add-train-body">
+                    <form role="form">
+                        <div class="form-group">
+                            <label for="train-name-input">Train Name</label>
+                            <input class="form-control" id="train-name-input" type="text">
+                        </div>
+                        <div class="form-group">
+                            <label for="destination-input">Destination</label>
+                            <input class="form-control" id="destination-input" type="text">
+                        </div>
+                        <div class="form-group">
+                            <label for="first-train-input">First Train Time (HH:MM-military time)</label>
+                            <input class="form-control" id="first-train-input" type="text">
+                        </div>
+                        <div class="form-group">
+                            <label for="frequency-input">Frequency (min)</label>
+                            <input class="form-control" id="frequency-input" type="text">
+                        </div>
+                        <button class="btn btn-default" id="add-train" type="submit">Submit</button>
+                    </form>
+                </div>
             </div>
         </div>
-    </footer>
-    <script type="text/javascript" src="assets/javascript/train.js"></script>
+        <footer class="footer-bottom col-xs-12 navbar-inverse navbar-fixed-bottom">
+            <div class="container">
+                <div class="row">
+                    <p>© Copyright 2017 Lawrence Asperilla</p>
+                </div>
+            </div>
+        </footer>
+        <script type="text/javascript" src="assets/javascript/train.js"></script>
 </body>
 
 </html>
