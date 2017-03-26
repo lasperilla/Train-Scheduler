@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Train Scheduler</title>
+    <!-- bootstrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- css file -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!-- favicon -->
+    <link rel="icon" href="assets/images/favicon.ico" type="image/ico" sizes="16x16">
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <!-- firebase -->
+    <script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
+    <!-- moment.js -->
+    <script src='https://momentjs.com/downloads/moment.js'></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Train Scheduler</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container main-contents">
+        <div class="row">
+            <div class="jumbotron train-banner">
+                <h1>Galaxy Express 999</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="panel panel-success">
+                <div class="panel-heading panel-title">Current Train Schedule</div>
+                <div class="panel-body">
+                    <table id="current-schedule" class="table table-bordered table-hover specialCollapse">
+                        <tbody>
+                            <tr>
+                                <th>Train Name</th>
+                                <th>Destination</th>
+                                <th>Frequency (min)</th>
+                                <th>Next Arrival</th>
+                                <th>Minutes away</th>
+                            </tr>
+                            <tr>
+                                <td>Train 1</td>
+                                <td>Dest 1</td>
+                                <td>Freeq 1</td>
+                                <td>2:01</td>
+                                <td>1</td>
+                            </tr>
+                            <tr class="alt">
+                                <td>Train 2</td>
+                                <td>Dest 2</td>
+                                <td>Freeq 2</td>
+                                <td>2:02</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>Train 3</td>
+                                <td>Dest 3</td>
+                                <td>Freeq 3</td>
+                                <td>2:03</td>
+                                <td>3</td>
+                            </tr>
+                            <tr class="alt">
+                                <td>Train 4</td>
+                                <td>Dest 4</td>
+                                <td>Freeq 4</td>
+                                <td>2:04</td>
+                                <td>4</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+        </div>
+    </div>
+    <footer class="footer-bottom col-xs-12 navbar-inverse navbar-fixed-bottom">
+        <div class="container">
+            <div class="row">
+                <p>© Copyright 2017 Lawrence Asperilla</p>
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript" src="assets/javascript/train.js"></script>
+</body>
+
+</html>
