@@ -10,3 +10,40 @@ var config = {
 firebase.initializeApp(config);
 // End Initialize Firebase
 
+// Create a variable to reference the database
+var database = firebase.database();
+
+100     // Initial Values 
+var trainName = ""; 
+var destination = ""; 
+var firstTrain = 0; //time
+var frequency = 0; 
+
+//------------
+
+$("#add-train").on("click", function() { 
+	// prevents submit button from refreshing the page 
+	event.preventDefault(); 
+
+
+	trainName = $("#train-name-input").val().trim(); 
+	destination = $("#destination-input").val().trim(); 
+	firstTrain = $("#first-train-input").val().trim(); 
+	frequency = $("#frequency-input").val().trim(); 
+
+
+
+	// database.ref().push({ 
+	// trainName : trainName, 
+	// destination: destination, 
+	// firstTrain: firstTrain, 
+	// frequency: frequency 
+	// }); 
+
+	//clear form
+	$("#train-name-input").val(""); 
+	$("#destination-input").val(""); 
+	$("#first-train-input").val(""); 
+	$("#frequency-input").val(""); 
+
+}); //end on click
