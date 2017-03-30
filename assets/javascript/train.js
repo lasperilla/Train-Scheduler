@@ -20,7 +20,7 @@ var frequency = 0;
 
 //------------ add a train. grabs values from form on clicking add train button
 
-$("#add-train").on("click", function() {
+$("#add-train").on("click", function(event) {
     // Don't refresh the page! 
     event.preventDefault();
 
