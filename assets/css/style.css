@@ -21,17 +21,6 @@ footer {
 	font-weight: bold;
 }
 
-/*th {
-    background-color: #4CAF50;
-    color: white;
-}
-
-table {
-	  display:table;
-  vertical-align: middle;
-  text-align: center;
-}*/
-
 .table > thead > tr > th{
     border-right: 1px solid #ddd;
     border-bottom:0;
