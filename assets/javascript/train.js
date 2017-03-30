@@ -8,7 +8,6 @@ var config = {
 };
 
 firebase.initializeApp(config);
-// End Initialize Firebase
 
 // Create a variable to reference the database
 var database = firebase.database();
@@ -16,10 +15,10 @@ var database = firebase.database();
 // Initial Values 
 var trainName = "";
 var destination = "";
-var firstTrain = "00:00"; //time
+var firstTrain = "00:00"; 
 var frequency = 0;
 
-//------------
+//------------ add a train. grabs values from form on clicking add train button
 
 $("#add-train").on("click", function() {
     // Don't refresh the page! 
@@ -31,7 +30,7 @@ $("#add-train").on("click", function() {
     firstTrain = $("#first-train-input").val().trim();
     frequency = $("#frequency-input").val().trim();
 
-    //push to firebase
+    // push to firebase
     database.ref().push({
         trainName: trainName,
         destination: destination,
@@ -39,23 +38,17 @@ $("#add-train").on("click", function() {
         frequency: frequency
     });
 
-    //clear form
+    // clear form
     $("#train-name-input").val("");
     $("#destination-input").val("");
     $("#first-train-input").val("");
     $("#frequency-input").val("");
 
-}); //end on click
+}); // end on click
 
-//------------------
+//-------------update page when child is added to firebase via add train 
 
 database.ref().on("child_added", function(childSnapshot) {
-
-    // Log everything that's coming out of snapshot 
-    console.log(childSnapshot.val().trainName);
-    console.log(childSnapshot.val().destination);
-    console.log(childSnapshot.val().firstTrain);
-    console.log(childSnapshot.val().frequency);
 
     var displayTrainName = childSnapshot.val().trainName;
     var displayDestination = childSnapshot.val().destination;
@@ -66,27 +59,21 @@ database.ref().on("child_added", function(childSnapshot) {
 
     // First Train (pushed back 1 year to make sure it comes before current time)
     var firstTimeConverted = moment(displayFirstTrain, "hh:mm").subtract(1, "years");
-    console.log(firstTimeConverted);
 
     // Current Time
     var currentTime = moment();
-    console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
 
     // Difference between the times
     var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
-    console.log("DIFFERENCE IN TIME: " + diffTime);
 
     // Time apart (remainder)
     var tRemainder = diffTime % displayFrequency;
-    console.log(tRemainder);
 
     // Minute Until Train
     var tMinutesTillTrain = displayFrequency - tRemainder;
-    console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
 
     // Next Train
     var nextTrain = moment().add(tMinutesTillTrain, "minutes");
-    console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
 
     displayNextArrival = moment(nextTrain).format("hh:mm");
     displayTimeToNext = tMinutesTillTrain;
@@ -101,9 +88,8 @@ database.ref().on("child_added", function(childSnapshot) {
         "<td>" + displayNextArrival + "</td>" +
         "<td>" + displayTimeToNext + "</td>" +
         "</tr>"
-    	);
-
-    // Handle the errors 
+    );
+// Handle the errors 
 }, function(errorObject) {
     console.log("Errors handled: " + errorObject.code);
 });
